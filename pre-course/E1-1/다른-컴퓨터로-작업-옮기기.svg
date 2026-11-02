@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640" role="img" aria-labelledby="title desc">
+<title id="title">다른 컴퓨터로 Docker 작업을 옮기는 두 경로</title><desc id="desc">코드와 설정 파일은 GitHub를 통해 새 컴퓨터로 옮겨 다시 빌드하고 실행한다. 기존 볼륨의 데이터는 별도 백업과 복원이 필요하다. SSH 키와 로컬 환경은 새 컴퓨터에서 별도로 설정한다.</desc>
+<rect width="900" height="640" fill="#fff"/>
+<g font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif" fill="#17212b">
+<text x="28" y="42" font-size="26" font-weight="700">폴더 이동 ≠ 실행 환경과 데이터 이동</text>
+<text x="28" y="74" font-size="17" fill="#526170">두 경로를 따로 생각하면 무엇을 복사해야 하는지 분명해진다.</text>
+<text x="28" y="121" font-size="18" font-weight="700" fill="#315b80">① 코드와 실행 설정</text>
+<rect x="28" y="140" width="235" height="115" rx="10" fill="#e9f3fb"/>
+<text x="47" y="173" font-size="19" font-weight="700">기존 컴퓨터</text><text x="47" y="202" font-size="16">소스코드 · Dockerfile</text><text x="47" y="228" font-size="16">compose.yaml · README</text>
+<path d="M269 197H327" stroke="#6085a5" stroke-width="3"/><path d="m327 197-10-6v12z" fill="#6085a5"/>
+<rect x="336" y="140" width="215" height="115" rx="10" fill="#e9f3fb"/>
+<text x="355" y="173" font-size="19" font-weight="700">GitHub 저장소</text><text x="355" y="202" font-size="16">코드 push → clone</text><text x="355" y="228" font-size="16">비밀값·실데이터 제외</text>
+<path d="M557 197H615" stroke="#6085a5" stroke-width="3"/><path d="m615 197-10-6v12z" fill="#6085a5"/>
+<rect x="624" y="140" width="248" height="115" rx="10" fill="#e9f3fb"/>
+<text x="643" y="173" font-size="19" font-weight="700">새 컴퓨터</text><text x="643" y="202" font-size="16">Docker 설치 · clone</text><text x="643" y="228" font-size="16">이미지 재빌드 · 실행</text>
+<text x="28" y="315" font-size="18" font-weight="700" fill="#286451">② 남겨야 하는 실제 데이터</text>
+<rect x="28" y="335" width="235" height="115" rx="10" fill="#e8f4ee"/>
+<text x="47" y="368" font-size="19" font-weight="700">기존 Docker 볼륨</text><text x="47" y="397" font-size="16">DB 기록 · 업로드 파일</text><text x="47" y="423" font-size="16">프로젝트 폴더 밖일 수 있음</text>
+<path d="M269 392H327" stroke="#60937b" stroke-width="3"/><path d="m327 392-10-6v12z" fill="#60937b"/>
+<rect x="336" y="335" width="215" height="115" rx="10" fill="#e8f4ee"/>
+<text x="355" y="368" font-size="19" font-weight="700">별도 백업 파일</text><text x="355" y="397" font-size="16">DB 백업 · 파일 백업</text><text x="355" y="423" font-size="16">안전하게 전송</text>
+<path d="M557 392H615" stroke="#60937b" stroke-width="3"/><path d="m615 392-10-6v12z" fill="#60937b"/>
+<rect x="624" y="335" width="248" height="115" rx="10" fill="#e8f4ee"/>
+<text x="643" y="368" font-size="19" font-weight="700">새 컴퓨터의 볼륨</text><text x="643" y="397" font-size="16">생성 · 복원 · 검증</text><text x="643" y="423" font-size="16">그 뒤 서비스 연결</text>
+<path d="M28 485H872" stroke="#d4dce2"/>
+<text x="28" y="526" font-size="19" font-weight="700">따로 다시 준비할 것</text>
+<text x="28" y="558" font-size="17">SSH 인증, .env의 실제 값, 설치된 도구, 호스트의 바인드 마운트 경로</text>
+<text x="28" y="593" font-size="16" fill="#526170">정적 웹 예제는 ①만으로 충분할 수 있지만, WordPress·DB처럼 데이터가 있으면 ②가 필수다.</text>
+</g></svg>

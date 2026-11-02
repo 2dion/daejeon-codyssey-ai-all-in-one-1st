@@ -1,0 +1,22 @@
+$ mkdir -p practice/cli-capture-20261102
+$ cd practice/cli-capture-20261102
+$ pwd
+/Users/[USER]/Documents/Codyssey/AllInOne/GitHub/pre-course/E1-1/practice/cli-capture-20261102
+$ echo 'hello codyssey'
+$ touch empty.txt
+$ ls -la
+total 8
+drwxr-xr-x@ 4 [USER]  staff  128 Nov  2 14:28 .
+drwxr-xr-x  6 [USER]  staff  192 Nov  2 14:28 ..
+-rw-r--r--@ 1 [USER]  staff    0 Nov  2 14:28 empty.txt
+-rw-r--r--@ 1 [USER]  staff   15 Nov  2 14:28 original.txt
+$ cat original.txt
+hello codyssey
+$ cp original.txt copy.txt
+$ ls -l
+total 16
+-rw-r--r--@ 1 [USER]  staff  15 Nov  2 14:28 copy.txt
+-rw-r--r--@ 1 [USER]  staff   0 Nov  2 14:28 empty.txt
+-rw-r--r--@ 1 [USER]  staff  15 Nov  2 14:28 original.txt
+$ cat copy.txt
+hello codyssey

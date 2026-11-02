@@ -1,0 +1,21 @@
+# macOS metadata
+.DS_Store
+._*
+
+# Local secrets (keep only a safe template in Git)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local editor and temporary files
+.vscode/
+.idea/
+*.log
+*.tmp
+*.swp
+
+# Historical config screenshot includes an email; use masked text evidence.
+pre-course/E1-1/screenshots/9-1.png
+pre-course/E1-1/screenshots/*2026-11-01*

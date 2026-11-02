@@ -1,0 +1,20 @@
+$ umask
+022
+$ mkdir -p practice/permission-dir
+$ touch practice/permission-file
+$ ls -l practice/permission-file
+-rw-r--r--@ 1 [USER]     staff  0 Nov  2 14:24 practice/permission-file
+$ ls -ld practice/permission-dir
+drwxr-xr-x  2 [USER]     staff  64 Nov  1 19:29 practice/permission-dir
+$ chmod 600 practice/permission-file
+$ ls -l practice/permission-file
+-rw-------@ 1 [USER]     staff  0 Nov  2 14:24 practice/permission-file
+$ chmod 644 practice/permission-file
+$ ls -l practice/permission-file
+-rw-r--r--@ 1 [USER]     staff  0 Nov  2 14:24 practice/permission-file
+$ chmod 700 practice/permission-dir
+$ ls -ld practice/permission-dir
+drwx------@ 2 [USER]     staff  64 Nov  1 19:29 practice/permission-dir
+$ chmod 755 practice/permission-dir
+$ ls -ld practice/permission-dir
+drwxr-xr-x@ 2 [USER]     staff  64 Nov  1 19:29 practice/permission-dir

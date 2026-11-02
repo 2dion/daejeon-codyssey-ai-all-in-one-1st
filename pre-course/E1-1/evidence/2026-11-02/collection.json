@@ -1,0 +1,42 @@
+{
+  "01-environment": {
+    "exit_code": 0,
+    "bytes": 597
+  },
+  "02-cli": {
+    "exit_code": 0,
+    "bytes": 2905
+  },
+  "03-permissions": {
+    "exit_code": 0,
+    "bytes": 856
+  },
+  "04-docker-basics": {
+    "exit_code": 0,
+    "bytes": 4243
+  },
+  "05-build": {
+    "exit_code": 0,
+    "bytes": 4345
+  },
+  "06-bind": {
+    "exit_code": 0,
+    "bytes": 2485
+  },
+  "07-port-conflict": {
+    "exit_code": 0,
+    "bytes": 2506
+  },
+  "08-volume": {
+    "exit_code": 0,
+    "bytes": 592
+  },
+  "09-cleanup": {
+    "exit_code": 0,
+    "bytes": 1743
+  },
+  "10-git-config": {
+    "exit_code": 0,
+    "bytes": 854
+  }
+}

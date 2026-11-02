@@ -1,0 +1,75 @@
+$ pwd
+/Users/[USER]/Documents/Codyssey/AllInOne/GitHub/pre-course/E1-1
+$ ls -la
+total 136
+drwxr-xr-x  12 [USER]     staff    384 Nov  2 14:24 .
+drwxr-xr-x   4 [USER]     staff    128 Nov  1 14:37 ..
+-rw-r--r--@  1 [USER]     staff   8196 Nov  1 21:45 .DS_Store
+-rw-r--r--   1 [USER]     staff     63 Nov  1 21:10 Dockerfile
+-rw-r--r--@  1 [USER]     staff  15766 Nov  1 21:45 README.md
+drwxr-xr-x@  3 [USER]     staff     96 Nov  2 14:24 evidence
+drwxr-xr-x   4 [USER]     staff    128 Nov  1 19:30 practice
+drwxr-xr-x  26 [USER]     staff    832 Nov  1 21:38 screenshots
+drwxr-xr-x   3 [USER]     staff     96 Nov  1 21:27 site
+-rw-r--r--@  1 [USER]     staff  27357 Nov  1 15:28 미션 사전 질문과 답변.md
+-rw-r--r--@  1 [USER]     staff   3706 Nov  1 15:27 다른-컴퓨터로-작업-옮기기.svg
+-rw-r--r--@  1 [USER]     staff   3325 Nov  1 15:26 파일-권한-읽는-법.svg
+$ mkdir -p practice/cli-proof-20261102
+$ cd practice/cli-proof-20261102
+$ pwd
+/Users/[USER]/Documents/Codyssey/AllInOne/GitHub/pre-course/E1-1/practice/cli-proof-20261102
+$ echo 'hello codyssey'
+$ touch empty.txt
+$ ls -la
+total 8
+drwxr-xr-x@ 4 [USER]     staff  128 Nov  2 14:24 .
+drwxr-xr-x  5 [USER]     staff  160 Nov  2 14:24 ..
+-rw-r--r--@ 1 [USER]     staff    0 Nov  2 14:24 empty.txt
+-rw-r--r--@ 1 [USER]     staff   15 Nov  2 14:24 original.txt
+$ cat original.txt
+hello codyssey
+$ cp original.txt copy.txt
+$ ls -l
+total 16
+-rw-r--r--@ 1 [USER]     staff  15 Nov  2 14:24 copy.txt
+-rw-r--r--@ 1 [USER]     staff   0 Nov  2 14:24 empty.txt
+-rw-r--r--@ 1 [USER]     staff  15 Nov  2 14:24 original.txt
+$ cat copy.txt
+hello codyssey
+$ mv copy.txt renamed.txt
+$ ls -l
+total 16
+-rw-r--r--@ 1 [USER]     staff   0 Nov  2 14:24 empty.txt
+-rw-r--r--@ 1 [USER]     staff  15 Nov  2 14:24 original.txt
+-rw-r--r--@ 1 [USER]     staff  15 Nov  2 14:24 renamed.txt
+$ mkdir moved
+$ mv renamed.txt moved/
+$ ls -la . moved
+.:
+total 8
+drwxr-xr-x@ 5 [USER]     staff  160 Nov  2 14:24 .
+drwxr-xr-x  5 [USER]     staff  160 Nov  2 14:24 ..
+-rw-r--r--@ 1 [USER]     staff    0 Nov  2 14:24 empty.txt
+drwxr-xr-x@ 3 [USER]     staff   96 Nov  2 14:24 moved
+-rw-r--r--@ 1 [USER]     staff   15 Nov  2 14:24 original.txt
+
+moved:
+total 8
+drwxr-xr-x@ 3 [USER]     staff   96 Nov  2 14:24 .
+drwxr-xr-x@ 5 [USER]     staff  160 Nov  2 14:24 ..
+-rw-r--r--@ 1 [USER]     staff   15 Nov  2 14:24 renamed.txt
+$ rm moved/renamed.txt
+$ ls -la moved
+total 0
+drwxr-xr-x@ 2 [USER]     staff   64 Nov  2 14:24 .
+drwxr-xr-x@ 5 [USER]     staff  160 Nov  2 14:24 ..
+$ rmdir moved
+$ ls -la
+total 8
+drwxr-xr-x@ 4 [USER]     staff  128 Nov  2 14:24 .
+drwxr-xr-x  5 [USER]     staff  160 Nov  2 14:24 ..
+-rw-r--r--@ 1 [USER]     staff    0 Nov  2 14:24 empty.txt
+-rw-r--r--@ 1 [USER]     staff   15 Nov  2 14:24 original.txt
+$ cd ../..
+$ pwd
+/Users/[USER]/Documents/Codyssey/AllInOne/GitHub/pre-course/E1-1

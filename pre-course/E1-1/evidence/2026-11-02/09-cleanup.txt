@@ -1,0 +1,21 @@
+$ docker ps -a --filter 'name=proof'
+CONTAINER ID   IMAGE                   COMMAND                  CREATED                  STATUS                       PORTS                    NAMES
+1777cffc9019   e1-web:proof-20261102   "/docker-entrypoint.…"   Less than a second ago   Up Less than a second        127.0.0.1:8082->80/tcp   e1-web-proof-8082
+202153926cdd   ubuntu:24.04            "sleep infinity"         7 seconds ago            Exited (137) 4 seconds ago                            e1-exec-proof-20261102
+3e3e949f615a   ubuntu:24.04            "bash"                   7 seconds ago            Exited (0) 7 seconds ago                              e1-ubuntu-proof-20261102
+72b105483ccc   hello-world             "/hello"                 8 seconds ago            Exited (0) 8 seconds ago                              e1-hello-proof-20261102
+$ docker rm e1-hello-proof-20261102 e1-ubuntu-proof-20261102 e1-exec-proof-20261102
+e1-hello-proof-20261102
+e1-ubuntu-proof-20261102
+e1-exec-proof-20261102
+$ docker tag e1-web:proof-20261102 e1-cleanup-proof:temporary
+$ docker images e1-cleanup-proof
+IMAGE                        ID             DISK USAGE   CONTENT SIZE   EXTRA
+e1-cleanup-proof:temporary   484d64e025db       93.2MB         26.3MB   U
+$ docker rmi e1-cleanup-proof:temporary
+Untagged: e1-cleanup-proof:temporary
+$ docker images e1-cleanup-proof
+IMAGE   ID             DISK USAGE   CONTENT SIZE   EXTRA
+$ docker ps -a --filter 'name=proof'
+CONTAINER ID   IMAGE                   COMMAND                  CREATED        STATUS                  PORTS                    NAMES
+1777cffc9019   e1-web:proof-20261102   "/docker-entrypoint.…"   1 second ago   Up Less than a second   127.0.0.1:8082->80/tcp   e1-web-proof-8082

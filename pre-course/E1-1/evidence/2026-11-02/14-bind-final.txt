@@ -1,0 +1,8 @@
+$ docker inspect e1-bind --format '{{range .Mounts}}{{.Type}} {{.Source}} -> {{.Destination}} RW={{.RW}}{{end}}'
+bind /Users/[USER]/Documents/Codyssey/AllInOne/GitHub/pre-course/E1-1/site -> /usr/share/nginx/html RW=false
+$ curl -fsS http://localhost:8081
+$ grep '<p>'
+  <p>E1-1 미션에서 바인드 마운트 변경이 다시 반영됐습니다.</p>
+$ curl -fsS http://localhost:8080
+$ grep '<p>'
+  <p>E1-1 미션에서 직접 만든 페이지입니다.</p>

@@ -1,0 +1,18 @@
+$ sw_vers
+ProductName:		macOS
+ProductVersion:		26.6.2
+BuildVersion:		25G83
+$ printf 'Login shell: %s\n' /bin/zsh
+Login shell: /bin/zsh
+$ ps -p 30116 -o 'comm='
+/bin/zsh
+$ printf 'TERM_PROGRAM: %s\n' vscode
+TERM_PROGRAM: vscode
+$ git --version
+git version 2.55.0
+$ docker --version
+Docker version 29.9.2, build a82e528
+$ docker context show
+desktop-linux
+$ docker info --format 'Server {{.ServerVersion}} / OS {{.OperatingSystem}} / Architecture {{.Architecture}} / Containers {{.Containers}}'
+Server 29.9.2 / OS Docker Desktop / Architecture aarch64 / Containers 6

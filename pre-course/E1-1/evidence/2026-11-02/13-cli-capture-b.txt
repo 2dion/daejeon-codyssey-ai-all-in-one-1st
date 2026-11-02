@@ -1,0 +1,38 @@
+$ cd practice/cli-capture-20261102
+$ mv copy.txt renamed.txt
+$ ls -l
+total 16
+-rw-r--r--@ 1 [USER]  staff   0 Nov  2 14:28 empty.txt
+-rw-r--r--@ 1 [USER]  staff  15 Nov  2 14:28 original.txt
+-rw-r--r--@ 1 [USER]  staff  15 Nov  2 14:28 renamed.txt
+$ mkdir moved
+$ mv renamed.txt moved/
+$ ls -la . moved
+.:
+total 8
+drwxr-xr-x@ 5 [USER]  staff  160 Nov  2 14:28 .
+drwxr-xr-x  6 [USER]  staff  192 Nov  2 14:28 ..
+-rw-r--r--@ 1 [USER]  staff    0 Nov  2 14:28 empty.txt
+drwxr-xr-x@ 3 [USER]  staff   96 Nov  2 14:28 moved
+-rw-r--r--@ 1 [USER]  staff   15 Nov  2 14:28 original.txt
+
+moved:
+total 8
+drwxr-xr-x@ 3 [USER]  staff   96 Nov  2 14:28 .
+drwxr-xr-x@ 5 [USER]  staff  160 Nov  2 14:28 ..
+-rw-r--r--@ 1 [USER]  staff   15 Nov  2 14:28 renamed.txt
+$ rm moved/renamed.txt
+$ ls -la moved
+total 0
+drwxr-xr-x@ 2 [USER]  staff   64 Nov  2 14:28 .
+drwxr-xr-x@ 5 [USER]  staff  160 Nov  2 14:28 ..
+$ rmdir moved
+$ ls -la
+total 8
+drwxr-xr-x@ 4 [USER]  staff  128 Nov  2 14:28 .
+drwxr-xr-x  6 [USER]  staff  192 Nov  2 14:28 ..
+-rw-r--r--@ 1 [USER]  staff    0 Nov  2 14:28 empty.txt
+-rw-r--r--@ 1 [USER]  staff   15 Nov  2 14:28 original.txt
+$ cd ../..
+$ pwd
+/Users/[USER]/Documents/Codyssey/AllInOne/GitHub/pre-course/E1-1

@@ -1,0 +1,69 @@
+$ curl -fsSi http://localhost:8080
+HTTP/1.1 200 OK
+Server: nginx/1.31.8
+Date: Mon, 02 Nov 2026 05:28:06 GMT
+Content-Type: text/html
+Content-Length: 247
+Last-Modified: Sun, 01 Nov 2026 12:09:43 GMT
+Connection: keep-alive
+ETag: "6ae72c07-f7"
+Accept-Ranges: bytes
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 개발 작업실</title>
+</head>
+<body>
+  <h1>Docker로 실행한 첫 웹 페이지</h1>
+  <p>E1-1 미션에서 직접 만든 페이지입니다.</p>
+</body>
+</html>
+$ curl -fsSi http://localhost:8081
+HTTP/1.1 200 OK
+Server: nginx/1.31.8
+Date: Mon, 02 Nov 2026 05:28:06 GMT
+Content-Type: text/html
+Content-Length: 270
+Last-Modified: Mon, 02 Nov 2026 05:24:31 GMT
+Connection: keep-alive
+ETag: "6ae81e8f-10e"
+Accept-Ranges: bytes
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 개발 작업실</title>
+</head>
+<body>
+  <h1>Docker로 실행한 첫 웹 페이지</h1>
+  <p>E1-1 미션에서 바인드 마운트 변경이 다시 반영됐습니다.</p>
+</body>
+</html>
+$ curl -fsSi http://localhost:8082
+HTTP/1.1 200 OK
+Server: nginx/1.31.8
+Date: Mon, 02 Nov 2026 05:28:06 GMT
+Content-Type: text/html
+Content-Length: 263
+Last-Modified: Sun, 01 Nov 2026 12:27:00 GMT
+Connection: keep-alive
+ETag: "6ae73014-107"
+Accept-Ranges: bytes
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 개발 작업실</title>
+</head>
+<body>
+  <h1>Docker로 실행한 첫 웹 페이지</h1>
+  <p>E1-1 미션에서 바인드 마운트 변경이 반영됐습니다.</p>
+</body>
+</html>
+$ docker exec e1-bind ls -l /usr/share/nginx/html
+total 4
+-rw-r--r--    1 root     root           270 Nov  2 05:24 index.html

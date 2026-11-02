@@ -1,0 +1,57 @@
+$ docker ps -a --filter 'name=e1-bind'
+CONTAINER ID   IMAGE        COMMAND                  CREATED        STATUS        PORTS                    NAMES
+c991e2dfeba0   e1-web:1.0   "/docker-entrypoint.…"   17 hours ago   Up 17 hours   127.0.0.1:8081->80/tcp   e1-bind
+$ docker inspect e1-bind --format 'Status {{.State.Status}} | {{range .Mounts}}{{.Type}} {{.Source}} -> {{.Destination}} RW={{.RW}}{{end}}'
+Status running | bind /Users/[USER]/Documents/Codyssey/AllInOne/GitHub/pre-course/E1-1/site -> /usr/share/nginx/html RW=false
+$ pwd
+$ docker run -d --name e1-bind -p 127.0.0.1:8081:80 --mount 'type=bind,source=/Users/[USER]/Documents/Codyssey/AllInOne/GitHub/pre-course/E1-1/site,target=/usr/share/nginx/html,readonly' e1-web:1.0
+docker: Error response from daemon: Conflict. The container name "/e1-bind" is already in use by container "c991e2dfeba034c818effc8f59a709d7d7efee221a7a9e09bac764c330a19d6c". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+$ curl -s http://localhost:8081
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 개발 작업실</title>
+</head>
+<body>
+  <h1>Docker로 실행한 첫 웹 페이지</h1>
+  <p>E1-1 미션에서 바인드 마운트 변경이 반영됐습니다.</p>
+</body>
+</html>
+$ sed -i '' 's/바인드 마운트 변경이 반영됐습니다/바인드 마운트 변경이 다시 반영됐습니다/' site/index.html
+$ cat site/index.html
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 개발 작업실</title>
+</head>
+<body>
+  <h1>Docker로 실행한 첫 웹 페이지</h1>
+  <p>E1-1 미션에서 바인드 마운트 변경이 다시 반영됐습니다.</p>
+</body>
+</html>
+$ curl -s http://localhost:8081
+<html>
+<head><title>404 Not Found</title></head>
+<body>
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx/1.31.8</center>
+</body>
+</html>
+$ curl -s http://localhost:8080
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 개발 작업실</title>
+</head>
+<body>
+  <h1>Docker로 실행한 첫 웹 페이지</h1>
+  <p>E1-1 미션에서 직접 만든 페이지입니다.</p>
+</body>
+</html>
+$ docker inspect e1-bind --format 'Status {{.State.Status}} | {{range .Mounts}}{{.Type}} {{.Source}} -> {{.Destination}} RW={{.RW}}{{end}}'
+Status running | bind /Users/[USER]/Documents/Codyssey/AllInOne/GitHub/pre-course/E1-1/site -> /usr/share/nginx/html RW=false

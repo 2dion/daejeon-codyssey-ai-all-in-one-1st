@@ -1,0 +1,95 @@
+$ cat Dockerfile
+FROM nginx:alpine
+COPY site/ /usr/share/nginx/html/
+EXPOSE 80
+
+$ cat site/index.html
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 개발 작업실</title>
+</head>
+<body>
+  <h1>Docker로 실행한 첫 웹 페이지</h1>
+  <p>E1-1 미션에서 바인드 마운트 변경이 반영됐습니다.</p>
+</body>
+</html>
+$ docker build '--progress=plain' -t e1-web:proof-20261102 .
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 100B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 DONE 1.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 335B done
+#4 DONE 0.0s
+
+#5 [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
+#5 resolve docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606 done
+#5 CACHED
+
+#6 [2/2] COPY site/ /usr/share/nginx/html/
+#6 DONE 0.0s
+
+#7 exporting to image
+#7 exporting layers 0.0s done
+#7 exporting manifest sha256:8748bf9d88655c8c7af5c62fa92baf3ecd035b604705b6a8e12c023f3e5601f0 done
+#7 exporting config sha256:5787f69e6d48e91aa3b398fd79989b9e26cc4d22e2b91dbbbe2f70be3c94288a done
+#7 exporting attestation manifest sha256:35567e65795910c856844ff99d827011f97a01894bde11064e914c0c97b2e78c done
+#7 exporting manifest list sha256:484d64e025dbd199d2729dd17ef1567e5a92d47720cb03cce1b1f4b593b9ec40 done
+#7 naming to docker.io/library/e1-web:proof-20261102 done
+#7 unpacking to docker.io/library/e1-web:proof-20261102 done
+#7 DONE 0.1s
+$ docker image inspect e1-web:proof-20261102 --format 'Image {{.Id}} / ExposedPorts {{json .Config.ExposedPorts}}'
+Image sha256:484d64e025dbd199d2729dd17ef1567e5a92d47720cb03cce1b1f4b593b9ec40 / ExposedPorts {"80/tcp":{}}
+$ docker ps --filter 'name=e1-web'
+CONTAINER ID   IMAGE        COMMAND                  CREATED        STATUS        PORTS                    NAMES
+1b0d19820f61   e1-web:1.0   "/docker-entrypoint.…"   17 hours ago   Up 17 hours   127.0.0.1:8080->80/tcp   e1-web
+$ curl -i http://localhost:8080
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   247  100   247    0     0   151k      0 --:--:-- --:--:-- --:--:--  241k
+HTTP/1.1 200 OK
+Server: nginx/1.31.8
+Date: Mon, 02 Nov 2026 05:24:30 GMT
+Content-Type: text/html
+Content-Length: 247
+Last-Modified: Sun, 01 Nov 2026 12:09:43 GMT
+Connection: keep-alive
+ETag: "6ae72c07-f7"
+Accept-Ranges: bytes
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 개발 작업실</title>
+</head>
+<body>
+  <h1>Docker로 실행한 첫 웹 페이지</h1>
+  <p>E1-1 미션에서 직접 만든 페이지입니다.</p>
+</body>
+</html>
+$ docker logs --tail 8 e1-web
+2026/11/01 12:19:15 [notice] 1#1: start worker process 35
+2026/11/01 12:19:15 [notice] 1#1: start worker process 36
+2026/11/01 12:19:15 [notice] 1#1: start worker process 37
+172.17.0.1 - - [01/Nov/2026:12:19:31 +0000] "GET / HTTP/1.1" 200 247 "-" "curl/8.7.1" "-"
+172.17.0.1 - - [02/Nov/2026:05:24:29 +0000] "GET / HTTP/1.1" 200 247 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36" "-"
+172.17.0.1 - - [02/Nov/2026:05:24:29 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://localhost:8080/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36" "-"
+2026/11/02 05:24:29 [error] 31#31: *3 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+172.17.0.1 - - [02/Nov/2026:05:24:30 +0000] "GET / HTTP/1.1" 200 247 "-" "curl/8.7.1" "-"
+$ docker stats --no-stream e1-web
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O     PIDS
+1b0d19820f61   e1-web    0.00%     8.574MiB / 7.748GiB   0.11%     4.66kB / 3.46kB   0B / 12.3kB   9

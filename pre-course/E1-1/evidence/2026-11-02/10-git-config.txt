@@ -1,0 +1,18 @@
+$ git --version
+git version 2.55.0
+$ git config --list
+$ python3 -c 'import sys; allowed=("user.name=","user.email=","init.defaultbranch=","remote.origin.url=","branch.main.remote=","branch.main.merge="); [print("user.email=[MASKED]" if s.lower().startswith("user.email=") else s.rstrip()) for s in sys.stdin if s.lower().startswith(allowed)]'
+user.name=2dion
+user.email=[MASKED]
+init.defaultbranch=main
+remote.origin.url=https://github.com/2dion/daejeon-codyssey-ai-all-in-one-1st.git
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+$ git status --short --branch
+## No commits yet on main...origin/main [gone]
+A  ../../.gitignore
+?? ../
+$ git remote -v
+origin	https://github.com/2dion/daejeon-codyssey-ai-all-in-one-1st.git (fetch)
+origin	https://github.com/2dion/daejeon-codyssey-ai-all-in-one-1st.git (push)
+$ git ls-remote --heads origin
