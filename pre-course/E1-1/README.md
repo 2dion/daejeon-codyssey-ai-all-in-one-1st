@@ -205,6 +205,26 @@ VS Code 계정 메뉴의 `2dion (GitHub)` 로그인을 확인했다. 같은 메�
 
 Git은 로컬 버전 관리 도구이고 GitHub는 원격 저장소 공유 플랫폼이다. 로컬 커밋, 원격 push, VS Code 로그인·연동을 각각 확인한다. HTTPS origin이므로 SSH 인증 성공을 실제 SSH 푸시 증거로 대신하지 않는다.
 
+### 8.1 보너스 5: GitHub SSH 인증과 SSH 푸시
+
+2026-11-02 기존 SSH 키로 GitHub의 `2dion` 계정 인증을 재확인했다. 새 키 생성·교체 없이 기존 설정을 사용했다. 키 파일이나 개인키 내용은 공개하지 않는다.
+
+```console
+$ ssh -T git@github.com
+Hi 2dion! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+실제 확인 명령에는 BatchMode·접속 제한 시간·기존 호스트 키 검사 옵션을 추가했다. GitHub는 셸 접속을 제공하지 않아 이 인증 테스트가 성공 메시지와 함께 종료 코드 1을 반환한다. [GitHub 공식 안내](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
+
+인증 성공과 저장소 push 권한은 별개이므로, 아래 SSH 주소로 이번 문서 커밋을 실제 push해 검증한다. 원래 origin의 HTTPS 설정은 유지하고 push 명령에 SSH URL을 직접 지정한다.
+
+```bash
+git push git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git main
+git ls-remote git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git refs/heads/main
+```
+
+SSH 푸시 결과는 [실제 인증·push·원격 해시 로그](evidence/2026-11-02/19-ssh-bonus.txt)에 추가한다.
+
 ## 9. 트러블슈팅
 
 ### 사례 1. 컨테이너 이름 충돌: 기존 컨테이너 재사용
