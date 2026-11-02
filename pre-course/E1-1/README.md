@@ -69,6 +69,7 @@ NGINX가 시작하기 전에 접속하면 실패할 수 있다. docker ps와 doc
 | Git 설정 | 검증 완료 | [이메일을 가린 설정 로그](evidence/2026-11-02/10-git-config.txt) |
 | 커밋·푸시·VS Code 연동 | 검증 완료(계정 메뉴 사진 대신 관찰 기록) | 8장 실제 push·원격 해시·VS Code 관찰 기록 |
 | 트러블슈팅 2건 이상 | 3건 기록 | 9장 |
+| 보너스 5 · GitHub SSH | 인증·SSH 푸시 검증 완료 | 8.1장·19-ssh-bonus 로그 |
 
 ## 4. 터미널 기본 조작과 권한
 
@@ -203,7 +204,7 @@ VS Code 계정 메뉴의 `2dion (GitHub)` 로그인을 확인했다. 같은 메�
 
 ![실제 GitHub 원격 연결과 커밋 해시 일치](screenshots/20261102-terminal-git.png)
 
-Git은 로컬 버전 관리 도구이고 GitHub는 원격 저장소 공유 플랫폼이다. 로컬 커밋, 원격 push, VS Code 로그인·연동을 각각 확인한다. HTTPS origin이므로 SSH 인증 성공을 실제 SSH 푸시 증거로 대신하지 않는다.
+Git은 로컬 버전 관리 도구이고 GitHub는 원격 저장소 공유 플랫폼이다. 로컬 커밋, 원격 push, VS Code 로그인·연동을 각각 확인한다. 최초 업로드는 HTTPS origin을 사용했으며, 아래 보너스 검증에서는 SSH URL을 직접 지정해 실제 푸시도 수행했다.
 
 ### 8.1 보너스 5: GitHub SSH 인증과 SSH 푸시
 
@@ -216,14 +217,26 @@ Hi 2dion! You've successfully authenticated, but GitHub does not provide shell a
 
 실제 확인 명령에는 BatchMode·접속 제한 시간·기존 호스트 키 검사 옵션을 추가했다. GitHub는 셸 접속을 제공하지 않아 이 인증 테스트가 성공 메시지와 함께 종료 코드 1을 반환한다. [GitHub 공식 안내](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
 
-인증 성공과 저장소 push 권한은 별개이므로, 아래 SSH 주소로 이번 문서 커밋을 실제 push해 검증한다. 원래 origin의 HTTPS 설정은 유지하고 push 명령에 SSH URL을 직접 지정한다.
+인증 성공과 저장소 push 권한은 별개이므로, 아래 SSH 주소로 이번 문서 커밋을 실제 push해 검증했다. 원래 origin의 HTTPS 설정은 유지하고 push 명령에 SSH URL을 직접 지정한다.
 
 ```bash
 git push git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git main
 git ls-remote git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git refs/heads/main
 ```
 
-SSH 푸시 결과는 [실제 인증·push·원격 해시 로그](evidence/2026-11-02/19-ssh-bonus.txt)에 추가한다.
+**검증 결과: SSH 인증과 실제 SSH 푸시 성공.** 커밋 `98aefe8731fe08a2909350011551dfe668ef0ed8`을 SSH로 올린 후, SSH로 조회한 원격 main 해시와 로컬 HEAD가 일치했다.
+
+```console
+$ git push git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git main
+To github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git
+   24b1ea2..98aefe8  main -> main
+$ git ls-remote git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git refs/heads/main
+98aefe8731fe08a2909350011551dfe668ef0ed8 refs/heads/main
+```
+
+[실제 인증·push·원격 해시 전체 로그](evidence/2026-11-02/19-ssh-bonus.txt). 이 결과 로그를 문서에 추가하는 보완 커밋은 위 검증 커밋 뒤에 이어진다.
+
+동료평가 설명: “GitHub에 등록된 공개키와 짝인 개인키로 SSH 인증을 확인했습니다. 인증 성공에 그치지 않고 SSH 주소로 변경 커밋을 push했고, 원격에 같은 커밋이 반영됐는지도 확인했습니다.”
 
 ## 9. 트러블슈팅
 
@@ -267,4 +280,4 @@ SSH 푸시 결과는 [실제 인증·push·원격 해시 로그](evidence/2026-1
 | 포트 충돌 진단 순서 | 오류 종류→docker ps의 publish 필터→lsof→필요 없는 대상 중지 또는 호스트 포트 변경→curl·브라우저 재검증 |
 | 가장 어려웠던 점 | 명령 성공과 변화 검증을 구분한 권한 실험. 기존 상태를 읽고 다른 권한을 거쳐 실제 차이를 확인 |
 
-설명은 결론 한 문장→README 증거 위치→필요한 명령 시연 순서로 한다. Compose·멀티 컨테이너·환경 변수·SSH 푸시는 이번 필수 보완의 완료 항목에 포함하지 않는다.
+설명은 결론 한 문장→README 증거 위치→필요한 명령 시연 순서로 한다. Compose·멀티 컨테이너·환경 변수는 이번 완료 항목에 포함하지 않는다. SSH 푸시는 필수 실습과 구분해 보너스 5번으로 검증했다.

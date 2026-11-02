@@ -1,3 +1,16 @@
 $ ssh -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKeyChecking=yes -T git@github.com
 Hi 2dion! You've successfully authenticated, but GitHub does not provide shell access.
 [exit status: 1]
+
+$ git push git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git main
+To github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git
+   24b1ea2..98aefe8  main -> main
+[exit status: 0]
+
+$ git rev-parse HEAD
+98aefe8731fe08a2909350011551dfe668ef0ed8
+[exit status: 0]
+
+$ git ls-remote git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git refs/heads/main
+98aefe8731fe08a2909350011551dfe668ef0ed8	refs/heads/main
+[exit status: 0]

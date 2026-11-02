@@ -814,3 +814,26 @@ $ git rev-parse HEAD
 $ git ls-remote origin refs/heads/main
 1cb3aa1bf7600ea1ebc99fff6073b8691ee16fe6	refs/heads/main
 ```
+
+## 19-ssh-bonus
+
+GitHub SSH 인증 테스트의 종료 코드 1은 성공 메시지와 함께 확인했다. 실제 git push와 원격 조회는 종료 코드 0이었다.
+
+```console
+$ ssh -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKeyChecking=yes -T git@github.com
+Hi 2dion! You've successfully authenticated, but GitHub does not provide shell access.
+[exit status: 1]
+
+$ git push git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git main
+To github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git
+   24b1ea2..98aefe8  main -> main
+[exit status: 0]
+
+$ git rev-parse HEAD
+98aefe8731fe08a2909350011551dfe668ef0ed8
+[exit status: 0]
+
+$ git ls-remote git@github.com:2dion/daejeon-codyssey-ai-all-in-one-1st.git refs/heads/main
+98aefe8731fe08a2909350011551dfe668ef0ed8	refs/heads/main
+[exit status: 0]
+```
