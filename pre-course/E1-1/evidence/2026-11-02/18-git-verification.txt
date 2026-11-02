@@ -1,0 +1,11 @@
+$ git log --oneline -2
+1cb3aa1 docs: add pre-course guides and E1-1 verified evidence
+$ git branch -vv
+* main 1cb3aa1 [origin/main] docs: add pre-course guides and E1-1 verified evidence
+$ git remote -v
+origin	https://github.com/2dion/daejeon-codyssey-ai-all-in-one-1st.git (fetch)
+origin	https://github.com/2dion/daejeon-codyssey-ai-all-in-one-1st.git (push)
+$ git rev-parse HEAD
+1cb3aa1bf7600ea1ebc99fff6073b8691ee16fe6
+$ git ls-remote origin refs/heads/main
+1cb3aa1bf7600ea1ebc99fff6073b8691ee16fe6	refs/heads/main

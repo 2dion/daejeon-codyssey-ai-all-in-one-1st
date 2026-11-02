@@ -67,7 +67,7 @@ NGINX가 시작하기 전에 접속하면 실패할 수 있다. docker ps와 doc
 | 바인드 마운트 전후 | 검증 완료 | [변경 전후](evidence/2026-11-02/06-bind.txt), [정상 최종 응답](evidence/2026-11-02/14-bind-final.txt) |
 | 볼륨 영속성 | 검증 완료 | [새 검증](evidence/2026-11-02/08-volume.txt), [기존 사진](screenshots/8.png) |
 | Git 설정 | 검증 완료 | [이메일을 가린 설정 로그](evidence/2026-11-02/10-git-config.txt) |
-| 커밋·푸시·VS Code 연동 | 최종 확인 중 | 8장에 실제 확인 결과 기록 |
+| 커밋·푸시·VS Code 연동 | 검증 완료(계정 메뉴 사진 대신 관찰 기록) | 8장 실제 push·원격 해시·VS Code 관찰 기록 |
 | 트러블슈팅 2건 이상 | 3건 기록 | 9장 |
 
 ## 4. 터미널 기본 조작과 권한
@@ -193,7 +193,15 @@ preserved-20261102
 
 초기 상태는 No commits yet였으며 git ls-remote --heads origin 결과도 비어 있었다. 이 기록은 **보완 시작 시점**이다. 이후 커밋·푸시 결과는 별도로 기록한다.
 
-<!-- GIT_FINAL -->
+2026-11-02 최초 업로드를 완료했다. 커밋 `1cb3aa1bf7600ea1ebc99fff6073b8691ee16fe6`을 main에 push한 뒤 로컬 HEAD와 원격 main의 해시가 같은 것을 확인했다. 이 검증 로그와 캡처를 추가하면서 문서 보완 커밋이 뒤따를 수 있다.
+
+- [실제 commit·push·원격 해시 로그](evidence/2026-11-02/17-git-publish.txt)
+- [VS Code GitHub 계정·저장소 인식 관찰 기록](evidence/2026-11-02/16-vscode-observation.md)
+- [원격 저장소](https://github.com/2dion/daejeon-codyssey-ai-all-in-one-1st)
+
+VS Code 계정 메뉴의 `2dion (GitHub)` 로그인을 확인했다. 같은 메뉴에 있는 다른 계정의 이메일을 공개하지 않도록 계정 메뉴 사진 대신 관찰 기록을 남겼다. 기존 이메일 포함 9-1.png도 제출에서 제외했다. 커밋에는 GitHub noreply 이메일을 사용했다.
+
+![실제 GitHub 원격 연결과 커밋 해시 일치](screenshots/20261102-terminal-git.png)
 
 Git은 로컬 버전 관리 도구이고 GitHub는 원격 저장소 공유 플랫폼이다. 로컬 커밋, 원격 push, VS Code 로그인·연동을 각각 확인한다. HTTPS origin이므로 SSH 인증 성공을 실제 SSH 푸시 증거로 대신하지 않는다.
 

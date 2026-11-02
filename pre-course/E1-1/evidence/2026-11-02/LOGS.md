@@ -697,3 +697,120 @@ Accept-Ranges: bytes
 </body>
 </html>
 ```
+
+## 17-git-publish
+
+```console
+$ git -c user.email=276911602+2dion@users.noreply.github.com commit -m 'docs: add pre-course guides and E1-1 verified evidence'
+[main (root-commit) 1cb3aa1] docs: add pre-course guides and E1-1 verified evidence
+ 81 files changed, 2303 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 pre-course/E1-1/Dockerfile
+ create mode 100644 pre-course/E1-1/README.md
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/01-environment-vscode.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/01-environment.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/01-environment.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/02-cli.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/02-cli.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/03-permissions.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/03-permissions.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/04-docker-basics.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/04-docker-basics.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/05-build.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/05-build.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/06-bind.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/06-bind.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/07-port-conflict.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/07-port-conflict.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/08-volume.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/08-volume.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/09-cleanup.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/09-cleanup.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/10-git-config.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/10-git-config.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/11-http-final.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/11-http-final.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/12-cli-capture-a.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/12-cli-capture-a.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/13-cli-capture-b.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/13-cli-capture-b.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/14-bind-final.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/14-bind-final.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/15-port-final.sh
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/15-port-final.txt
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/16-vscode-observation.md
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/LOGS.md
+ create mode 100644 pre-course/E1-1/evidence/2026-11-02/collection.json
+ create mode 100644 pre-course/E1-1/practice/cli-capture-20261102/empty.txt
+ create mode 100644 pre-course/E1-1/practice/cli-capture-20261102/original.txt
+ create mode 100644 pre-course/E1-1/practice/cli-proof-20261102/empty.txt
+ create mode 100644 pre-course/E1-1/practice/cli-proof-20261102/original.txt
+ create mode 100644 pre-course/E1-1/practice/permission-file
+ create mode 100644 pre-course/E1-1/screenshots/0.png
+ create mode 100644 pre-course/E1-1/screenshots/2-1.png
+ create mode 100644 pre-course/E1-1/screenshots/2-2.png
+ create mode 100644 pre-course/E1-1/screenshots/20261102-browser-8080.png
+ create mode 100644 pre-course/E1-1/screenshots/20261102-browser-8081.png
+ create mode 100644 pre-course/E1-1/screenshots/20261102-terminal-bind.png
+ create mode 100644 pre-course/E1-1/screenshots/20261102-terminal-cli-a.png
+ create mode 100644 pre-course/E1-1/screenshots/20261102-terminal-cli-b.png
+ create mode 100644 pre-course/E1-1/screenshots/20261102-terminal-environment.png
+ create mode 100644 pre-course/E1-1/screenshots/20261102-terminal-permissions.png
+ create mode 100644 pre-course/E1-1/screenshots/20261102-terminal-port.png
+ create mode 100644 pre-course/E1-1/screenshots/20261102-terminal-volume.png
+ create mode 100644 pre-course/E1-1/screenshots/3-1.png
+ create mode 100644 pre-course/E1-1/screenshots/3-2.png
+ create mode 100644 pre-course/E1-1/screenshots/4-1.png
+ create mode 100644 pre-course/E1-1/screenshots/4-2.png
+ create mode 100644 pre-course/E1-1/screenshots/4-3.png
+ create mode 100644 pre-course/E1-1/screenshots/4-4.png
+ create mode 100644 pre-course/E1-1/screenshots/4-5.png
+ create mode 100644 pre-course/E1-1/screenshots/5-1.png
+ create mode 100644 pre-course/E1-1/screenshots/5-2.png
+ create mode 100644 pre-course/E1-1/screenshots/5-3.png
+ create mode 100644 pre-course/E1-1/screenshots/6-1.png
+ create mode 100644 pre-course/E1-1/screenshots/6-2.png
+ create mode 100644 pre-course/E1-1/screenshots/6-3.png
+ create mode 100644 pre-course/E1-1/screenshots/6-4.png
+ create mode 100644 pre-course/E1-1/screenshots/6-5.png
+ create mode 100644 pre-course/E1-1/screenshots/6-6.png
+ create mode 100644 pre-course/E1-1/screenshots/7-1.png
+ create mode 100644 pre-course/E1-1/screenshots/7-2.png
+ create mode 100644 pre-course/E1-1/screenshots/8.png
+ create mode 100644 pre-course/E1-1/screenshots/9-2.png
+ create mode 100644 pre-course/E1-1/screenshots/README.md
+ create mode 100644 pre-course/E1-1/site/index.html
+ create mode 100644 "pre-course/E1-1/\353\213\244\353\245\270-\354\273\264\355\223\250\355\204\260\353\241\234-\354\236\221\354\227\205-\354\230\256\352\270\260\352\270\260.svg"
+ create mode 100644 "pre-course/E1-1/\353\257\270\354\205\230 \354\202\254\354\240\204 \354\247\210\353\254\270\352\263\274 \353\213\265\353\263\200.md"
+ create mode 100644 "pre-course/E1-1/\355\214\214\354\235\274-\352\266\214\355\225\234-\354\235\275\353\212\224-\353\262\225.svg"
+ create mode 100644 pre-course/README.md
+$ git push -u origin main
+To https://github.com/2dion/daejeon-codyssey-ai-all-in-one-1st.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+$ git log --oneline -3
+1cb3aa1 docs: add pre-course guides and E1-1 verified evidence
+$ git branch -vv
+* main 1cb3aa1 [origin/main] docs: add pre-course guides and E1-1 verified evidence
+$ git rev-parse HEAD
+1cb3aa1bf7600ea1ebc99fff6073b8691ee16fe6
+$ git ls-remote origin refs/heads/main
+1cb3aa1bf7600ea1ebc99fff6073b8691ee16fe6	refs/heads/main
+```
+
+## 18-git-verification
+
+```console
+$ git log --oneline -2
+1cb3aa1 docs: add pre-course guides and E1-1 verified evidence
+$ git branch -vv
+* main 1cb3aa1 [origin/main] docs: add pre-course guides and E1-1 verified evidence
+$ git remote -v
+origin	https://github.com/2dion/daejeon-codyssey-ai-all-in-one-1st.git (fetch)
+origin	https://github.com/2dion/daejeon-codyssey-ai-all-in-one-1st.git (push)
+$ git rev-parse HEAD
+1cb3aa1bf7600ea1ebc99fff6073b8691ee16fe6
+$ git ls-remote origin refs/heads/main
+1cb3aa1bf7600ea1ebc99fff6073b8691ee16fe6	refs/heads/main
+```
