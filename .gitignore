@@ -19,3 +19,7 @@
 # Historical config screenshot includes an email; use masked text evidence.
 pre-course/E1-1/screenshots/9-1.png
 pre-course/E1-1/screenshots/*2026-11-01*
+
+# Python bytecode cache
+__pycache__/
+*.py[cod]
